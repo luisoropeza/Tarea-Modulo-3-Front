@@ -23,22 +23,42 @@
           <td>{{ user.birthDay }}</td>
           <td>{{ user.age }}</td>
           <td>
-            <v-dialog v-model="dialog" scrollable width="500">
+            <v-dialog v-model="updateDialog" scrollable width="500">
               <template v-slot:activator="{ props }">
                 <v-btn
                   color="blue"
                   size="small"
                   class="my-2 mr-2"
                   v-bind="props"
-                  @click="openDialog(user)"
+                  @click="openDialog('update', user)"
                   >Update</v-btn
                 >
               </template>
               <v-card>
-                <ModalUpdateUser :user="selectedUser" @close="closeDialog" />
+                <ModalUpdateUser
+                  :user="selectedUser"
+                  @close="closeDialog('update')"
+                />
               </v-card>
             </v-dialog>
-            <v-btn color="red" size="small" class="my-2">Delete</v-btn>
+            <v-dialog v-model="deleteDialog" scrollable width="500">
+              <template v-slot:activator="{ props }">
+                <v-btn
+                  color="red"
+                  size="small"
+                  class="my-2 mr-2"
+                  v-bind="props"
+                  @click="openDialog('delete', user)"
+                  >Delete</v-btn
+                >
+              </template>
+              <v-card>
+                <ModalDeleteUser
+                  :user="selectedUser"
+                  @close="closeDialog('delete')"
+                />
+              </v-card>
+            </v-dialog>
           </td>
         </tr>
       </tbody>
@@ -48,23 +68,25 @@
 <script setup>
 import { ref } from "vue";
 import ModalUpdateUser from "@/components/ModalUpdateUser.vue";
+import ModalDeleteUser from "@/components/ModalDeleteUser.vue";
 
 const props = defineProps(["users"]);
-
 const emit = defineEmits(["updateData"]);
 
-const dialog = ref(false);
-
+const updateDialog = ref(false);
+const deleteDialog = ref(false);
 const selectedUser = ref(null);
 
-const openDialog = (user) => {
+const openDialog = (type, user) => {
   selectedUser.value = user;
-  dialog.value = true;
+  if (type === "update") updateDialog.value = true;
+  else if (type === "delete") deleteDialog.value = true;
 };
 
-const closeDialog = () => {
+const closeDialog = (type) => {
   emit("updateData");
   selectedUser.value = null;
-  dialog.value = false;
+  if (type === "update") updateDialog.value = false;
+  else if (type === "delete") deleteDialog.value = false;
 };
 </script>
