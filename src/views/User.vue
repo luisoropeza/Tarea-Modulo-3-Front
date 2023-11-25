@@ -14,7 +14,7 @@
     </v-dialog>
     <br />
     <br />
-    <UserComponent :users="users" />
+    <UserComponent @updateData="fetchAllUsers" :users="users" />
   </div>
 </template>
 

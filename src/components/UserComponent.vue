@@ -23,8 +23,22 @@
           <td>{{ user.birthDay }}</td>
           <td>{{ user.age }}</td>
           <td>
-            <v-btn color="red" size="small" class="my-2 mr-2">Eliminar</v-btn>
-            <v-btn color="blue" size="small" class="my-2">Editar</v-btn>
+            <v-dialog v-model="dialog" scrollable width="500">
+              <template v-slot:activator="{ props }">
+                <v-btn
+                  color="blue"
+                  size="small"
+                  class="my-2 mr-2"
+                  v-bind="props"
+                  @click="openDialog(user)"
+                  >Update</v-btn
+                >
+              </template>
+              <v-card>
+                <ModalUpdateUser :user="selectedUser" @close="closeDialog" />
+              </v-card>
+            </v-dialog>
+            <v-btn color="red" size="small" class="my-2">Delete</v-btn>
           </td>
         </tr>
       </tbody>
@@ -32,5 +46,25 @@
   </div>
 </template>
 <script setup>
+import { ref } from "vue";
+import ModalUpdateUser from "@/components/ModalUpdateUser.vue";
+
 const props = defineProps(["users"]);
+
+const emit = defineEmits(["updateData"]);
+
+const dialog = ref(false);
+
+const selectedUser = ref(null);
+
+const openDialog = (user) => {
+  selectedUser.value = user;
+  dialog.value = true;
+};
+
+const closeDialog = () => {
+  emit("updateData");
+  selectedUser.value = null;
+  dialog.value = false;
+};
 </script>
