@@ -19,7 +19,6 @@
         Are you sure want to delete the user?:
         {{ user ? user.username : "User Deleted" }}
       </v-card-text>
-
       <v-card-actions>
         <v-spacer />
         <v-btn color="red" @click="closeDialog"> Close </v-btn>

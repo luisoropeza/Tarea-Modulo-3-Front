@@ -23,7 +23,6 @@
             required
             :rules="[(v) => !!v || 'Username is required']"
           ></v-text-field>
-
           <v-text-field
             v-model="formData.password"
             label="Password*"
@@ -31,36 +30,30 @@
             required
             :rules="[(v) => !!v || 'Password is required']"
           ></v-text-field>
-
           <v-text-field
             v-model="formData.email"
             label="Email*"
             required
             :rules="[(v) => !!v || 'Email is required']"
           ></v-text-field>
-
           <v-text-field
             v-model="formData.firstName"
             label="First Name*"
             required
             :rules="[(v) => !!v || 'First Name is required']"
           ></v-text-field>
-
           <v-text-field
             v-model="formData.lastName"
             label="Last Name*"
             required
             :rules="[(v) => !!v || 'Last Name is required']"
           ></v-text-field>
-
           <v-text-field
             v-model="formData.birthDay"
             type="date"
             label="Birth Day"
           ></v-text-field>
-
           <v-text-field v-model="formData.age" label="Age"></v-text-field>
-
           <small>*indicates required field</small>
         </v-card-text>
         <v-card-actions>
