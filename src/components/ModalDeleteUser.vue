@@ -1,16 +1,16 @@
 <template>
+  <v-btn color="red" size="small" class="my-2 mr-2" @click="dialog = true">
+    <span>
+      <v-icon icon="mdi-close-circle" style="font-size: 20px" />
+    </span>
+    Delete
+  </v-btn>
   <v-dialog
     transition="dialog-bottom-transition"
     v-model="dialog"
     scrollable
     width="500"
   >
-    <template v-slot:activator="{ props }">
-      <v-btn color="red" size="small" class="my-2 mr-2" v-bind="props">
-        <span><v-icon icon="mdi-pencil" style="font-size: 20px" /></span
-        >Delete</v-btn
-      >
-    </template>
     <v-card>
       <v-card-title>
         <span class="text-h5">Delete User</span>

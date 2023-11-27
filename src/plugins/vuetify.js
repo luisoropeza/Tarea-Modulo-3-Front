@@ -15,11 +15,18 @@ import { aliases, mdi } from "vuetify/iconsets/mdi";
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
   theme: {
+    dark: true, // Habilita el tema oscuro
     themes: {
       light: {
         colors: {
           primary: "#1867C0",
           secondary: "#5CBBF6",
+        },
+      },
+      dark: {
+        colors: {
+          primary: "#2196F3",
+          secondary: "#64B5F6",
         },
       },
     },

@@ -1,13 +1,11 @@
 <template>
+  <v-btn color="grey darken-1" @click="dialog = true">Add User</v-btn>
   <v-dialog
     transition="dialog-bottom-transition"
     v-model="dialog"
     scrollable
     width="500"
   >
-    <template v-slot:activator="{ props }">
-      <v-btn color="grey darken-1" v-bind="props">Add User</v-btn>
-    </template>
     <v-card>
       <v-card-title>
         <span class="text-h5">Add User</span>

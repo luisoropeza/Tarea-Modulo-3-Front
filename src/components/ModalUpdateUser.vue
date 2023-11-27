@@ -1,16 +1,16 @@
 <template>
+  <v-btn color="blue" size="small" class="my-2 mr-2" @click="dialog=true">
+    <span>
+      <v-icon icon="mdi-pencil" style="font-size: 20px" />
+    </span>
+    Update
+  </v-btn>
   <v-dialog
     transition="dialog-bottom-transition"
     v-model="dialog"
     scrollable
     width="500"
   >
-    <template v-slot:activator="{ props }">
-      <v-btn color="blue" size="small" class="my-2 mr-2" v-bind="props">
-        <span><v-icon icon="mdi-pencil" style="font-size: 20px" /></span
-        >Update</v-btn
-      >
-    </template>
     <v-card>
       <v-card-title>
         <span class="text-h5">Update User</span>
