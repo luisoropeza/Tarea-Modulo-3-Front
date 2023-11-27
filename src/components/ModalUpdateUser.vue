@@ -65,7 +65,7 @@
 </template>
 
 <script setup>
-import { reactive, ref } from "vue";
+import { reactive, ref, watch } from "vue";
 import axios from "axios";
 
 const dialog = ref(false);
@@ -93,6 +93,10 @@ const resetForm = () => {
   formData.age = props.user.age;
   formData.birthDay = props.user.birthDay;
 };
+
+watch(() => {
+  Object.assign(formData, props.user);
+});
 
 const closeDialog = () => {
   props.emit("updateData");
