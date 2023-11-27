@@ -21,7 +21,7 @@
         <td>{{ user.lastName }}</td>
         <td>{{ user.birthDay }}</td>
         <td>{{ user.age }}</td>
-        <td>
+        <td class="d-flex align-center ga-2">
           <ModalUpdateUser :user="user" :emit="emit" />
           <ModalDeleteUser :user="user" :emit="emit" />
         </td>

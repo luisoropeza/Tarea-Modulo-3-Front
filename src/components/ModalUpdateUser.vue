@@ -1,9 +1,6 @@
 <template>
-  <v-btn color="blue" size="small" class="my-2 mr-2" @click="dialog=true">
-    <span>
-      <v-icon icon="mdi-pencil" style="font-size: 20px" />
-    </span>
-    Update
+  <v-btn color="blue" size="small" @click="dialog = true">
+    <v-icon icon="mdi-pencil" style="font-size: 20px" />
   </v-btn>
   <v-dialog
     transition="dialog-bottom-transition"

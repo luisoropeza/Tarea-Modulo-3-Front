@@ -1,9 +1,6 @@
 <template>
-  <v-btn color="red" size="small" class="my-2 mr-2" @click="dialog = true">
-    <span>
-      <v-icon icon="mdi-close-circle" style="font-size: 20px" />
-    </span>
-    Delete
+  <v-btn color="red" size="small" @click="dialog = true">
+    <v-icon icon="mdi-close-circle" style="font-size: 20px" />
   </v-btn>
   <v-dialog
     transition="dialog-bottom-transition"
