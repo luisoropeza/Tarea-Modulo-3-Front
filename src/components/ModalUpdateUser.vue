@@ -5,6 +5,7 @@
   <v-dialog
     transition="dialog-bottom-transition"
     v-model="dialog"
+    persistent
     scrollable
     width="500"
   >
@@ -83,8 +84,19 @@ const formData = reactive({
   birthDay: props.user.birthDay,
 });
 
+const resetForm = () => {
+  formData.username = props.user.username;
+  formData.password = props.user.password;
+  formData.email = props.user.email;
+  formData.firstName = props.user.firstName;
+  formData.lastName = props.user.lastName;
+  formData.age = props.user.age;
+  formData.birthDay = props.user.birthDay;
+};
+
 const closeDialog = () => {
   props.emit("updateData");
+  resetForm();
   dialog.value = false;
 };
 
