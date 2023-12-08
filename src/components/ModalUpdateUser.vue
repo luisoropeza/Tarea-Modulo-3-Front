@@ -65,7 +65,7 @@
 </template>
 
 <script setup>
-import { reactive, ref, watch } from "vue";
+import { reactive, ref, watchEffect } from "vue";
 import axios from "axios";
 
 const dialog = ref(false);
@@ -84,7 +84,7 @@ const formData = reactive({
   birthDay: props.user.birthDay,
 });
 
-watch(() => {
+watchEffect(() => {
   Object.assign(formData, props.user);
 });
 
